@@ -1,0 +1,97 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/responsive.scss' as *;
+
+.history-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 80px 52px;
+    .history-chat-header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        .history-chat-title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1;
+            color: $text-secondary;
+            margin: 0;
+        }
+        .history-chat-subtitle {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.125;
+            color: $text-secondary;
+            margin: 0;
+            max-width: 420px;
+        }
+    }
+}
+.tabs {
+    display: inline-flex;
+    border: 1px solid $primary-color;
+    border-radius: 6px;
+    padding: 4px;
+    gap: 6px;
+    li {
+        @include button(16px, 400, 10px 8px, 4px, transparent);
+        color: $text-muted;
+        transition: all 0.2s;
+        &.active {
+            background-color: $primary-color !important;
+            color: $text-primary !important;
+            box-shadow: 0px 1px 4px 0px rgba(78, 159, 255, 0.2);
+        }
+    }
+}
+.accordion {
+    width: 100%;
+    max-width: 584px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &-item {
+        background-color: $background-light;
+        border-radius: 6px;
+        padding: 20px 20px 20px 24px;
+        box-shadow: 0px 0.5px 2px 0px rgba(25, 33, 61, 0.1);
+        overflow: hidden;
+    }
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        text-align: left;
+        color: $text-secondary;
+        padding: 6px 1px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &-content {
+        padding-top: 11px;
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.125;
+            color: $text-light-muted;
+            margin: 0;
+        }
+    }
+}
+// responsive {
+@include small {
+    .history-chat {
+        padding: 40px 20px;
+    }
+    .tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

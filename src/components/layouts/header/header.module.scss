@@ -1,0 +1,95 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/responsive.scss' as *;
+
+.header {
+    background: $background-dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    .logo-brand {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        img {
+            flex-shrink: 0;
+        }
+    }
+    .brand-text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .brand-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: $text-primary;
+            margin: 0;
+            line-height: 1.17;
+        }
+        .brand-subtitle {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.17;
+            color: $text-primary;
+            margin: 0;
+        }
+    }
+    .auth-nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-shrink: 0;
+        .btn-login,
+        .btn-register {
+            line-height: 1.33;
+            min-height: 53px;
+            min-width: 106px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-login {
+            @include button(18px, 700, 10px 20px, 10px, $primary-color);
+        }
+        .btn-register {
+            @include button(18px, 700, 10px 20px, 10px, transparent, 1px solid $text-primary);
+        }
+    }
+}
+// responsive
+@include medium {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        .brand-text {
+            .brand-title {
+                font-size: 24px;
+            }
+            .brand-subtitle {
+                font-size: 18px;
+            }
+        }
+    }
+}
+@include small {
+    .header {
+        .logo-brand {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .auth-nav {
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            a,
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

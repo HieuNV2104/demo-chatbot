@@ -1,0 +1,11 @@
+@mixin button($font-size, $font-weight, $padding, $border-radius, $background, $border: none) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    padding: $padding;
+    border-radius: $border-radius;
+    background: $background !important;
+    border: $border;
+    &:hover {
+        cursor: pointer !important;
+    }
+}

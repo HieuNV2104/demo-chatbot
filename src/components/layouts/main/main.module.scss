@@ -1,0 +1,7 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/responsive.scss' as *;
+
+.main {
+    background: $background-dark;
+}

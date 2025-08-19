@@ -1,0 +1,57 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/responsive.scss' as *;
+
+.footer {
+    background: $background-dark;
+    padding: 26px 167px;
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        border-top: 1px solid rgba(109, 117, 143, 0.5);
+        padding-top: 24px;
+        .copyright-text {
+            font-size: 16px;
+            line-height: 1.375;
+            color: $text-muted;
+            margin: 0;
+        }
+    }
+}
+
+.social-media-links {
+    display: flex;
+    gap: 16px;
+    li {
+        background-color: $primary-color;
+        border-radius: 4px;
+        width: 24px;
+        height: 24px;
+        a {
+            display: block;
+            width: inherit;
+            height: inherit;
+            position: relative;
+        }
+        img {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+// responsive
+@include small {
+    .footer {
+        padding: 26px 30px;
+        .footer-container {
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+}
