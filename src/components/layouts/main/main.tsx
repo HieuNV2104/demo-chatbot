@@ -24,6 +24,7 @@ import AppUnavailable from '@/components/app-unavailable';
 import { API_KEY, APP_ID, APP_INFO, isShowPrompt, promptTemplate } from '@/config';
 import type { Annotation as AnnotationType } from '@/types/log';
 import { addFileInfos, sortAgentSorts } from '@/utils/tools';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export type IMainProps = {
     params: any;
@@ -34,6 +35,7 @@ import HistoryChat from '@/components/layouts/history-chat/history-chat';
 import Chat from '@/components/layouts/chat/chat';
 
 const Main: FC = () => {
+    const { hideHistoryChat, setHideHistoryCHat } = useAuthStore();
     const { t } = useTranslation();
     const media = useBreakpoints();
     const isMobile = media === MediaType.mobile;
@@ -654,6 +656,7 @@ const Main: FC = () => {
             }
         });
         getHistoryChat(currConversationId);
+        setHideHistoryCHat(true);
     };
 
     const handleFeedback = async (messageId: string, feedback: Feedbacktype) => {
@@ -694,7 +697,7 @@ const Main: FC = () => {
                     checkCanSend={checkCanSend}
                     visionConfig={visionConfig}
                 />
-                <HistoryChat data={historyChatList} />
+                {!hideHistoryChat && <HistoryChat data={historyChatList} />}
             </main>
         </>
     );
