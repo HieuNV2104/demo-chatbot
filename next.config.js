@@ -15,6 +15,24 @@ const nextConfig = {
     typescript: {
         // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
         ignoreBuildErrors: true
+    },
+    async headers() {
+        return [
+            {
+                // áp dụng cho tất cả route
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'ALLOWALL' // hoặc ALLOW-FROM https://yourshop.com
+                    },
+                    {
+                        key: 'Content-Security-Policy',
+                        value: "frame-ancestors 'self' https://yourshop.com;"
+                    }
+                ]
+            }
+        ];
     }
 };
 
