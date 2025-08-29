@@ -28,7 +28,7 @@ const nextConfig = {
                     },
                     {
                         key: 'Content-Security-Policy',
-                        value: "frame-ancestors 'self' https://yourshop.com;"
+                        value: 'frame-ancestors *;'
                     }
                 ]
             }
